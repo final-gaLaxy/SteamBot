@@ -1,0 +1,12 @@
+{
+  "adminIDs": ["xxxxxxx"],
+  "ownerID": "xxxxxxx",
+  "ProfileID": "xxxxxxx",
+  "minprice": 0.00,
+  "Prices_time": 600,
+  "Confirm_time": 99999999999999999999,
+  "buypercent": 0.95,
+  "gameid": "730",
+  "CreditVal": 0.005,
+  "CreditCost": 0.01
+}

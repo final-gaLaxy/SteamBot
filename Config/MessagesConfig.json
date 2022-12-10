@@ -1,0 +1,39 @@
+{
+  "prefix": "!",
+  "accept_Friends": true,
+  "OnFriend": "Hello, I am Trashy Bot #1. You can donate or trade me items, where my items are worth 100% and yours are worth 95%(total min price is $0.30). Use !help if you want some donation commands",
+  "Donations": "Thank you for donating items to this bot.",
+  "Junk_Items": "Sorry but your items are worth to little",
+  "Admins_Trade": "Your trade is getting accepted right now, Admin",
+  "Trade_Accept": "Your trade has been accepted. Have a nice day! :steamhappy:",
+  "Trade_Decline": "Your trade has been declined as you have offer to little. Please try again and remember, my items are worth 100% and yours are worth 95%",
+  "Unkown_Command": "Unkown Command. Use !help for a list of commands!",
+  "Help": {
+    "!help": "Use the following commands to make quick case donations; !chroma, !chroma2, !chroma3, !gamma, !gamma2, !shadow, !revolver, !hydra, !falchion, !glove, !spectrum, !spectrum2, !bravo, !vanguard, !huntsman, !winter, !breakout, !weapon, !weapon2 and !weapon3"
+  },
+  "Command_Msg":{
+    "!chroma": "Sending your Chroma Case now",
+    "!chroma2": "Sending your Chroma 2 Case now",
+    "!chroma3": "Sending your Chroma 3 Case now",
+    "!gamma": "Sending your Gamma Case now",
+    "!gamma2": "Sending your Gamma 2 Case now",
+    "!shadow": "Sending your Shadow Case now",
+    "!revolver": "Sending your Revolver Case now",
+    "!hydra": "Sending your Operation Hydra Case now",
+    "!falchion": "Sending your Falchion Case now",
+    "!glove": "Sending your Glove Case now",
+    "!spectrum": "Sending your Spectrum Case now",
+    "!spectrum2": "Sending your Spectrum 2 Case now",
+    "!bravo": "Sending your Operation Bravo Case now",
+    "!vanguard": "Sending your Operation Vanguard Weapon Case now",
+    "!huntsman": "Sending your Huntsman Weapon Case now",
+    "!winter": "Sending your Winter Offensive Case now",
+    "!wildfire": "Sending your Operation Wildfire Case now",
+    "!phoenix": "Sending your Operation Phoenix Weapon Case now",
+    "!breakout": "Sending your Operation Breakout Case now",
+    "!weapon3": "Sending your CS:GO Weapon Case 3 now",
+    "!weapon2": "Sending your CS:GO Weapon Case 2 now",
+    "!weapon": "Sending your CS:GO Weapon Case now",
+    "!credits": "Credits"
+  }
+}
