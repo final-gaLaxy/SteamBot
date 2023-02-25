@@ -1,9 +1,8 @@
 const fs = require('fs');
 const fse = require('fs-extra');
-const CreditsDIR = __dirname + '/../' + './Credits';
-const BackupDIR = __dirname + '/../' + './Backup';
-const MSGcfg = require(__dirname + '/../' + './Config/MessagesConfig.json');
-const PriceDIR = __dirname + '/../' + './Prices/CSGOPrices.json';
+const CreditsDIR = __dirname + '/../' + './credits';
+const BackupDIR = __dirname + '/../' + './backup';
+const PriceDIR = __dirname + '/../' + './prices/CSGOPrices.json';
 
 var itemsVal;
 var CreditForEach;
@@ -15,7 +14,7 @@ function CreditValue(items, bot) {
 	itemsVal = 0;
 	if (items) {
 		prices = require(PriceDIR);
-		//Getting prices
+		// Getting prices
 		for (var t in items) {
 			val = prices["items_list"][items[t].market_name][(bot ? "highest_price" : "lowest_price")];
 			val = parseFloat(val);

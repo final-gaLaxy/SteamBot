@@ -8,5 +8,11 @@
   "buypercent": 0.95,
   "gameid": "730",
   "CreditVal": 0.005,
-  "CreditCost": 0.01
+  "CreditCost": 0.01,
+  "login": {
+    "username": "username",
+    "password": "password",
+    "identity_secret": "xxxxxxx",
+    "shared_secret": "xxxxxxx"
+  }
 }

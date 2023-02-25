@@ -1,17 +1,17 @@
 const SteamUser = require('steam-user');
 const SteamTotp = require('steam-totp');
 const SteamCommunity = require('steamcommunity');
-const CreditsDIR = `${__dirname}/Credits`;
+const CreditsDIR = `${__dirname}/credits`;
 const TradeOfferManager = require('steam-tradeoffer-manager');
 const request = require('request');
 const fs = require('fs');
-const config = require('./Config/Config.json');
-const logincfg = require('./Config/LoginConfig.json');
-const MSGcfg = require('./Config/MessagesConfig.json');
-const CreditsFunc = require('./Functions/CreditFunc.js');
+const config = require('./config/config.json');
+const logincfg = config.login;
+const MSGcfg = require('./config/messages.json');
+const CreditsFunc = require('./functions/credits.js');
 const winston = require('winston');
 const moment = require('moment');
-const maker = require('./FolderCreater.js');
+const maker = require('./folderCreater.js');
 
 const community = new SteamCommunity();
 const client = new SteamUser();
@@ -35,12 +35,8 @@ const {
 	printf
 } = format;
 
-var CredLOC;
 var CreditForEach;
-var creditsPersist;
 var pointDIR;
-var pointDIR;
-var msgs;
 
 var time = `\n	Date: ${moment()}`
 
@@ -155,15 +151,15 @@ function getPrices() {
 			return console.log('Error: ' + err + '- Status Code: ' + response.statusCode);
 		}
 		if (JSON.parse(text)["success"] != true) return;
-		fs.writeFileSync('./Prices/CSGOPrices.json', text);
+		fs.writeFileSync('./prices/CSGOPrices.json', text);
 	});
 }
 
 function OfferValue(offers) {
 	let offerValue = 0;
 	if (offers) {
-		const prices = require('./Prices/CSGOPrices.json');
-		//Getting prices
+		const prices = require('./prices/CSGOPrices.json');
+		// Getting prices
 		for (var i in offers) {
 			prices[offers[i].market_hash_name] >= config.minPricePerItem ? offerValue += prices[offers[i].market_hash_name] : null;
 		}
@@ -231,7 +227,7 @@ client.on('newItems', function (count) {
 
 manager.on('newOffer', function (offerID) {
 	const partner = offerID.partner.getSteamID64();
-	const partnerCred = require(`${__dirname}/Credits/${partner}.json`);
+	const partnerCred = require(`${__dirname}/credits/${partner}.json`);
 	offerID.getUserDetails((err, bot, trader) => {
 		if (err) return console.log(err);
 
@@ -299,7 +295,7 @@ if (fs.existsSync('polldata.json')) {
 	manager.pollData = JSON.parse(fs.readFileSync('polldata.json'));
 }
 
-//GiveCredits on accept
+// GiveCredits on accept
 manager.on('sentOfferChanged', function (offer, oldstate) {
 	if (offer.state === 3) {
 		if (offer.itemsToReceive === 1) {

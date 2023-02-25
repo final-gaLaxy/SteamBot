@@ -1,6 +1,5 @@
-/Config/Config.json
-/Config/LoginConfig.json
+/config/config.json
 /logs
 /node_modules
 /polldata.json
-/Prices
+/prices
