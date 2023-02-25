@@ -5,12 +5,12 @@
 [![MIT License][license-shield]][license-url]
 
 
+<h3 align="center">Node.js Steam Bot</h3>
 
-<!-- PROJECT LOGO -->
-<h3 align="center">Steam Bot</h3>
+<p align="center"><strong>Note: This project is old and may not work in its current state.</strong></p>
 
 <p align="center">
-A random Steam bot written in NodeJS that I made to trade csgo items and accept donations.
+A simple Node.js Steam bot for trading csgo items and accepting donations. This bot requires mobile Steam Guard to be enabled.
 </p>
 
 
@@ -18,15 +18,14 @@ A random Steam bot written in NodeJS that I made to trade csgo items and accept 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
-    <li>
-        <a href="#getting-started">Getting Started</a>
-        <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Available Commands](#available-commands)
+- [License](#license)
+
 </details>
 
 <!-- GETTING STARTED -->
@@ -34,38 +33,37 @@ A random Steam bot written in NodeJS that I made to trade csgo items and accept 
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm i npm@latest -g
-  ```
+* Node.js installed on your machine.
 
-* Identity Secret and Shared Secret of Steam account (for Mobile Authentication)
-  Search online on how to find them
+* A Steam account with mobile Steam Guard enabled.
+
+* The Identity Secret and Shared Secret for your Steam account's mobile authentication.
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/final-gaLaxy/SteamBot.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm i
-   ```
-3. Create `Config/Config.json` and `Config/LoginConfig.json` with the required information
+1. Clone this repository to your local machine using `git clone https://github.com/final-gaLaxy/SteamBot.git`.
+2. Navigate to the directory where the repository was cloned and install the required dependencies with `npm i`.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
-## Usage
+### Usage
+1. Copy `config/config.json.sample` file and rename it to `config.json`.
+2. Open `config.js` and fill in the necessary information and desired bot settings (username, password, shared secret, identity secret, etc.).
+3. Save the `config.json` file.
+4. (Optional) Edit `messages.json` as per your preferences.
+5. Run the bot using `npm start`.
 
-To start the bot run
-```sh
-npm start
-```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+### Available Commands
+This bot currently supports the following commands :
+* `!help`: Displays the available commands. Note that this command does not display admin commands.
+* `!csgo`: Sends all of the bot's CSGO items to the owner of the bot. This command is only available to the bot's owner.
+* `!steam`: Sends all of the bot's Steam items to the owner of the bot. This command is only available to the bot's owner.
+* `!game [gameid]`: Changes the game being played by the bot to the game with the specified `gameid`. Replace `[gameid]` with the Steam game ID of the desired game. This command is only available to authorized users.
+
+Note: This is not an exhaustive list of available commands. Use !help to see all available commands.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

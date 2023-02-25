@@ -9,7 +9,7 @@
   "Trade_Decline": "Your trade has been declined as you have offer to little. Please try again and remember, my items are worth 100% and yours are worth 95%",
   "Unkown_Command": "Unkown Command. Use !help for a list of commands!",
   "Help": {
-    "!help": "Use the following commands to make quick case donations; !chroma, !chroma2, !chroma3, !gamma, !gamma2, !shadow, !revolver, !hydra, !falchion, !glove, !spectrum, !spectrum2, !bravo, !vanguard, !huntsman, !winter, !breakout, !weapon, !weapon2 and !weapon3"
+    "!help": "Use the following commands to make quick case donations; !chroma, !chroma2, !chroma3, !gamma, !gamma2, !shadow, !revolver, !hydra, !falchion, !glove, !spectrum, !spectrum2, !bravo, !vanguard, !huntsman, !winter, !breakout, !weapon, !weapon2, !weapon3 and !takecsgo. Use !credits to view your credit balance."
   },
   "Command_Msg":{
     "!chroma": "Sending your Chroma Case now",
