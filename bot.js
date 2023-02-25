@@ -194,11 +194,12 @@ client.on('friendOrChatMessage', (steamID, message, type) => {
 				CSGOitems(config.ownerID);
 			} else if (lowercasemsg === "steam") {
 				Steamitems(steamID);
-			} else if (message.indexOf('!game ') === 0) {
+			}
+		}
+		if (config.adminIDs.includes(steamID) && message.indexOf('!game ') === 0) {
 				var gameId = message.parseInt('!game '.length);
 				client.gamesPlayed(["♫ Donate Me Stuff ♫", 440, gameId]);
 				console.log("Admin requested bot joins game id " + gameId);
-			}
 		}
 		if (lowercasemsg in definitions && typeof (definitions[lowercasemsg]) === 'string') {
 			Case(steamID, definitions[lowercasemsg], message);
