@@ -77,7 +77,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[stars-shield]: https://img.shields.io/github/stars/final-gaLaxy/SteamBot.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/final-gaLaxy/SteamBot.svg?style=for-the-badge&
 [stars-url]: https://github.com/final-gaLaxy/SteamBot/stargazers
-[license-shield]: https://img.shields.io/github/license/final-gaLaxy/SteamBot.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/final-gaLaxy/SteamBot.svg?style=for-the-badge&
 [license-url]: https://github.com/final-gaLaxy/SteamBot/blob/master/LICENSE.txt
