@@ -1,5 +1,3 @@
-// #region NPM packages & variables
-
 const SteamUser = require('steam-user');
 const SteamTotp = require('steam-totp');
 const SteamCommunity = require('steamcommunity');
@@ -82,10 +80,8 @@ const definitions = {
 }
 
 
-// #endregion
 
-// #region loggers
-
+// loggers
 const msglogger = winston.createLogger({
 	format: combine(
 		timestamp(),
@@ -126,10 +122,8 @@ const logger = winston.createLogger({
 	]
 });
 
-// #endregion
 
-// #region Logging On
-
+// Logging On
 client.logOn({
 	accountName: logincfg.username,
 	password: logincfg.password,
@@ -151,10 +145,8 @@ client.on('webSession', function (sessionID, cookies) {
 	community.startConfirmationChecker(20000, logincfg.identity_secret);
 });
 
-// #endregion
 
-// #region Recieving and Saving Prices
-
+// Recieving and Saving Prices
 const PRICESURL = "https://csgobackpack.net/api/GetItemsList/v2/"
 
 function getPrices() {
@@ -182,10 +174,8 @@ function OfferValue(offers) {
 getPrices();
 setInterval(getPrices, config.Prices_time * 1000);
 
-// #endregion
 
-// #region Friends
-
+// Friends
 client.on('friendRelationship', (steamID, relationship) => {
 	if (MSGcfg.accept_Friends) {
 		if (relationship === 2) {
@@ -233,10 +223,8 @@ client.on('friendOrChatMessage', (steamID, message, type) => {
 		}
 	}
 });
-// #endregion
 
-// #region Trading
-
+// Trading
 client.on('newItems', function (count) {
 	logger.info(`You have recieved ${count} new items.`);
 });
@@ -287,8 +275,7 @@ function ArrayFunction(value, array) {
 	return array.indexOf(value) > -1;
 }
 
-// #region Accept/Decline Offer
-
+// Accept/Decline Offer
 function acceptOffer(offer) {
 	offer.accept((err) => {
 		if (err) elogger.error(`Unable to accept offer: ${err}`);
@@ -302,12 +289,9 @@ function declineOffer(offer) {
 	});
 }
 
-// #endregion
 
-// #endregion
 
-// #region The Data of the poll :)
-
+// The Data of the poll :)
 manager.on('pollData', function (poll) {
 	fs.writeFileSync('polldata.json', JSON.stringify(poll, null, 2));
 });
@@ -329,10 +313,7 @@ manager.on('sentOfferChanged', function (offer, oldstate) {
 	}
 });
 
-//#endregion
-
-// #region Chat Functions
-
+// Chat Functions
 function CSGOitems(steamID) {
 	manager.getInventoryContents(730, 2, true, (err, inventory) => {
 		if (err) {
@@ -436,10 +417,8 @@ function giveCSGO(steamID) {
 	});
 }
 
-// #endregion
 
-// #region Offer Status Change
-
+// Offer Status Change
 manager.on('sentOfferChanged', function (offer, oldState) {
 	logger.info(`Sent Offer | ${offer.id} changed status: ${TradeOfferManager.ETradeOfferState[oldState]} -> ${TradeOfferManager.ETradeOfferState[offer.state]}`);
 	if (offer.state == 3) {
@@ -451,14 +430,7 @@ manager.on('receivedOfferChanged', function (offer, oldState) {
 	logger.info(`Recieved Offer | ${offer.id} changed status: ${TradeOfferManager.ETradeOfferState[oldState]} -> ${TradeOfferManager.ETradeOfferState[offer.state]}`);
 });
 
-// #endregion
-
-// #region Credits
-
-CreditsFunc.loadBackup();
-
-// #region Read Credits
-
+// Read Credits
 function credits(steamID) {
 	if (fs.existsSync(CreditsDIR + '/' + steamID + '.json')) {
 		pointDIR = CreditsDIR + '/' + steamID + '.json';
@@ -474,6 +446,23 @@ function credits(steamID) {
 	}
 }
 
-// #endregion
+exited = false;
 
-// #endregion
+function exitHandler() {
+	exited = true;
+	if (exited) return;
+	logger.info("Exiting...");
+	client.setPersona(SteamUser.EPersonaState.Offline);
+}
+
+process.on('exit', exitHandler);
+
+process.on('SIGINT', exitHandler);
+
+process.on('SIGUSR1', exitHandler);
+process.on('SIGUSR2', exitHandler);
+
+process.on('uncaughtException', exitHandler);
+
+
+
